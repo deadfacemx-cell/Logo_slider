@@ -5,24 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Carrusel de logos</title>
   <link rel="stylesheet" href="./logo-carousel.css">
+  <style>
+    html,
+    body.logo-carousel-demo,
+    .logo-carousel,
+    .logo-carousel__viewport {
+      background: transparent !important;
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  </style>
   <script src="./logo-carousel.js" defer></script>
 </head>
 <body class="logo-carousel-demo">
-  <!-- data-speed define la velocidad inicial en píxeles por segundo. -->
-  <section class="logo-carousel" data-logo-carousel data-speed="18" aria-labelledby="marcas">
-    <header class="logo-carousel__header">
-     
-
-      <div class="logo-carousel__controls" hidden>
-        <label class="logo-carousel__speed">
-          <span>Velocidad</span>
-          <input data-speed-control type="range" min="8" max="60" step="1" value="18">
-          <span data-speed-value aria-hidden="true">18 px/s</span>
-        </label>
-        <button class="logo-carousel__toggle" type="button" data-motion-toggle>Pausar</button>
-      </div>
-    </header>
-
+  <section class="logo-carousel" data-logo-carousel data-speed="18" aria-label="Marcas">
     <div class="logo-carousel__viewport">
       <div class="logo-carousel__track">
         <ul class="logo-carousel__logos" role="list">
