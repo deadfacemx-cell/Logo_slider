@@ -1,13 +1,10 @@
-/* Presentación de la página de ejemplo. */
+/* Contenedor principal sin márgenes ni fondo gris */
+html,
 .logo-carousel-demo {
   box-sizing: border-box;
-  display: grid;
-  align-items: center;
-  min-block-size: 100vh;
-  min-block-size: 100svh;
   margin: 0;
-  padding: clamp(0.75rem, 4vw, 3.5rem);
-  background: #f3f5f7;
+  padding: 0;
+  background: transparent;
 }
 
 /* Componente */
@@ -17,8 +14,6 @@
 }
 
 .logo-carousel {
-  --carousel-border: #e1e6eb;
-  --carousel-accent: #17566b;
   --logo-gap: clamp(0.45rem, 1vw, 0.65rem);
   --logo-cell: clamp(8rem, 14vw, 11.5rem);
   --logo-wide: clamp(6.5rem, 12vw, 9.75rem);
@@ -30,103 +25,15 @@
   max-inline-size: 74rem;
   margin-inline: auto;
   overflow: hidden;
-  border: 1px solid var(--carousel-border);
-  border-radius: 1.25rem;
-  background: #fff;
-  color: #181d24;
-  font-family: Inter, system-ui, sans-serif;
+  border: none;
+  border-radius: 0;
+  background: transparent;
 }
 
-.logo-carousel__header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 1.5rem;
-  padding: clamp(0.75rem, 2vw, 1.25rem) clamp(0.875rem, 3vw, 2rem);
-  border-block-end: 1px solid var(--carousel-border);
-}
-
-.logo-carousel__title {
-  margin: 0;
-  font-size: clamp(1.375rem, 2.5vw, 2rem);
-  font-weight: 650;
-  line-height: 1.15;
-  letter-spacing: -0.04em;
-}
-
+/* Oculta por completo el apartado del encabezado y controles si quedaron en el HTML */
+.logo-carousel__header,
 .logo-carousel__controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.25rem 0.75rem;
-  font-size: 0.8125rem;
-}
-
-.logo-carousel__controls[hidden] {
-  display: none;
-}
-
-.logo-carousel__speed {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: #46525f;
-  white-space: nowrap;
-}
-
-.logo-carousel__speed input {
-  inline-size: clamp(3rem, 8vw, 6.5rem);
-  block-size: 2.75rem;
-  margin: 0;
-  accent-color: var(--carousel-accent);
-  cursor: pointer;
-}
-
-.logo-carousel__speed [data-speed-value] {
-  min-inline-size: 3.65em;
-  font-variant-numeric: tabular-nums;
-}
-
-.logo-carousel__toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  min-inline-size: 6.25rem;
-  min-block-size: 2.75rem;
-  padding-inline: 0.65rem;
-  border: 1px solid var(--carousel-border);
-  border-radius: 0.55rem;
-  background: #fff;
-  color: inherit;
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.logo-carousel__toggle:hover {
-  background: #f1f5f7;
-}
-
-.logo-carousel__toggle::before {
-  content: "";
-  inline-size: 0.65rem;
-  block-size: 0.7rem;
-  border-inline: 0.15rem solid currentColor;
-}
-
-.logo-carousel__toggle[data-paused="true"]::before {
-  inline-size: 0;
-  block-size: 0;
-  border: 0;
-  border-block: 0.36rem solid transparent;
-  border-inline-start: 0.62rem solid currentColor;
-}
-
-.logo-carousel :is(button, input):focus-visible {
-  outline: 2px solid var(--carousel-accent);
-  outline-offset: 3px;
+  display: none !important;
 }
 
 .logo-carousel__logos {
@@ -232,6 +139,5 @@
   flex: none;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  /* El espacio final mantiene la misma separación entre las copias del grupo. */
   padding-inline-end: var(--logo-gap);
 }
