@@ -28,9 +28,10 @@ html,
   border: none;
   border-radius: 0;
   background: transparent;
+  mix-blend-mode: multiply;
 }
 
-/* Oculta por completo el apartado del encabezado y controles si quedaron en el HTML */
+/* Oculta por completo el apartado del encabezado y controles */
 .logo-carousel__header,
 .logo-carousel__controls {
   display: none !important;
@@ -52,6 +53,7 @@ html,
   place-items: center;
   inline-size: var(--logo-cell);
   block-size: var(--logo-row-height);
+  background: transparent;
 }
 
 .logo-carousel__mark {
@@ -60,6 +62,8 @@ html,
   inline-size: var(--logo-wide);
   aspect-ratio: var(--logo-ratio, 1);
   overflow: hidden;
+  background: transparent;
+  mix-blend-mode: multiply;
 }
 
 .logo-carousel__mark--square {
@@ -71,6 +75,7 @@ html,
   inline-size: 100%;
   block-size: 100%;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 /* Encuadre visual de los archivos con márgenes amplios. */
@@ -120,6 +125,7 @@ html,
 
 .logo-carousel[data-animated] .logo-carousel__viewport {
   overflow: hidden;
+  mix-blend-mode: multiply;
   mask-image: linear-gradient(
     to right,
     transparent,
@@ -133,6 +139,7 @@ html,
   display: flex;
   inline-size: max-content;
   direction: ltr;
+  mix-blend-mode: multiply;
 }
 
 .logo-carousel[data-animated] .logo-carousel__logos {
