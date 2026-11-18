@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es-MX" class="logo-carousel-page">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrusel de logos</title>
+  <link rel="stylesheet" href="./logo-carousel.css">
+  <script src="./logo-carousel.js" defer></script>
+</head>
+<body>
+  <!-- Este filtro vuelve transparentes los blancos de las cuatro imágenes indicadas. -->
+  <svg class="logo-carousel__filters" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="logo-carousel-white-to-alpha" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feColorMatrix in="SourceGraphic" type="matrix" values="
+          0 0 0 0 0
+          0 0 0 0 0
+          0 0 0 0 0
+          -3.333333 -3.333333 -3.333333 0 9.4
+        " result="alpha-mask" />
+        <feComposite in="SourceGraphic" in2="alpha-mask" operator="in" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- data-speed define la velocidad inicial en píxeles por segundo. -->
+  <section class="logo-carousel" data-logo-carousel data-speed="18" aria-label="Logos de empresas">
+    <div class="logo-carousel__viewport">
+      <div class="logo-carousel__track">
+        <ul class="logo-carousel__logos" role="list">
+          <li class="logo-carousel__item">
+            <span class="logo-carousel__mark logo-carousel__mark--crop logo-carousel__mark--transparent logo-carousel__mark--eralum">
+              <img src="./assets/eralum.png" alt="Eralum" width="500" height="500" draggable="false">
+            </span>
+          </li>
+          <li class="logo-carousel__item">
+            <span class="logo-carousel__mark logo-carousel__mark--crop logo-carousel__mark--transparent logo-carousel__mark--estrella">
+              <img src="./assets/estrella.jpeg" alt="Estrella" width="2048" height="682" draggable="false">
+            </span>
+          </li>
+          <li class="logo-carousel__item">
+            <span class="logo-carousel__mark logo-carousel__mark--square logo-carousel__mark--crop logo-carousel__mark--de-la-rosa">
+              <img src="./assets/dulces-de-la-rosa.png" alt="Dulces de la Rosa" width="500" height="500" draggable="false">
+            </span>
+          </li>
+          <li class="logo-carousel__item">
+            <span class="logo-carousel__mark logo-carousel__mark--square">
+              <img src="./assets/mascota.jpeg" alt="Mascota amarilla sobre fondo rojo" width="447" height="447" draggable="false">
+            </span>
+          </li>
+          <li class="logo-carousel__item">
+            <span class="logo-carousel__mark logo-carousel__mark--crop logo-carousel__mark--transparent logo-carousel__mark--kavak">
+              <img src="./assets/kavak.jpg" alt="Kavak" width="801" height="801" draggable="false">
+            </span>
+          </li>
+          <li class="logo-carousel__item">
+            <span class="logo-carousel__mark logo-carousel__mark--crop logo-carousel__mark--transparent logo-carousel__mark--pavisa">
+              <img src="./assets/pavisa.jpeg" alt="Pavisa" width="256" height="256" draggable="false">
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

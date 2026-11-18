@@ -1,0 +1,158 @@
+/* Estas reglas pertenecen al documento que se carga dentro del iframe. */
+.logo-carousel-page,
+.logo-carousel-page body {
+  inline-size: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: transparent;
+}
+
+.logo-carousel,
+.logo-carousel * {
+  box-sizing: border-box;
+}
+
+.logo-carousel__filters {
+  position: absolute;
+  inline-size: 0;
+  block-size: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.logo-carousel {
+  --logo-gap: clamp(0.45rem, 1vw, 0.65rem);
+  --logo-cell: clamp(8rem, 14vw, 11.5rem);
+  --logo-wide: clamp(6.5rem, 12vw, 9.75rem);
+  --logo-square: clamp(3.25rem, 6vw, 4rem);
+  --logo-row-height: 80px;
+  --edge-fade: clamp(0.75rem, 2vw, 1.6rem);
+
+  inline-size: 100%;
+  block-size: var(--logo-row-height);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.logo-carousel__viewport {
+  block-size: 100%;
+  overflow: hidden;
+}
+
+/* La lista estática también ocupa una sola fila. */
+.logo-carousel__logos {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: center;
+  gap: var(--logo-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.logo-carousel__item {
+  display: grid;
+  place-items: center;
+  min-inline-size: 0;
+  block-size: var(--logo-row-height);
+}
+
+.logo-carousel__mark {
+  position: relative;
+  display: block;
+  inline-size: min(var(--logo-wide), 100%);
+  aspect-ratio: var(--logo-ratio, 1);
+  overflow: hidden;
+}
+
+.logo-carousel__mark--square {
+  inline-size: min(var(--logo-square), 100%);
+}
+
+.logo-carousel__mark > img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+}
+
+/* El filtro elimina el blanco al renderizar sobre el fondo de la página. */
+.logo-carousel__mark--transparent > img {
+  filter: url("#logo-carousel-white-to-alpha");
+}
+
+/* Encuadre de las imágenes que incluyen márgenes amplios. */
+.logo-carousel__mark--crop > img {
+  position: absolute;
+  top: var(--logo-y);
+  left: var(--logo-x);
+  inline-size: var(--source-width);
+  max-inline-size: none;
+  block-size: auto;
+}
+
+.logo-carousel__mark--eralum {
+  --logo-ratio: 378 / 100;
+  --source-width: 132.2751%;
+  --logo-x: -15.873%;
+  --logo-y: -200%;
+}
+
+.logo-carousel__mark--estrella {
+  --logo-ratio: 1575 / 373;
+  --source-width: 130.0317%;
+  --logo-x: -15.0476%;
+  --logo-y: -26.2735%;
+}
+
+.logo-carousel__mark--de-la-rosa {
+  --logo-ratio: 1;
+  --source-width: 109.1703%;
+  --logo-x: -4.5852%;
+  --logo-y: -4.5852%;
+}
+
+.logo-carousel__mark--kavak {
+  --logo-ratio: 688 / 198;
+  --source-width: 116.4244%;
+  --logo-x: -8.1395%;
+  --logo-y: -152.5253%;
+}
+
+.logo-carousel__mark--pavisa {
+  --logo-ratio: 250 / 66;
+  --source-width: 102.4%;
+  --logo-x: -1.2%;
+  --logo-y: -140.9091%;
+}
+
+.logo-carousel[data-animated] .logo-carousel__viewport {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--edge-fade),
+    #000 calc(100% - var(--edge-fade)),
+    transparent
+  );
+}
+
+.logo-carousel[data-animated] .logo-carousel__track {
+  display: flex;
+  inline-size: max-content;
+  direction: ltr;
+}
+
+.logo-carousel[data-animated] .logo-carousel__logos {
+  display: flex;
+  flex: none;
+  padding-inline-end: var(--logo-gap);
+}
+
+.logo-carousel[data-animated] .logo-carousel__item {
+  flex: none;
+  inline-size: var(--logo-cell);
+}
